@@ -31,9 +31,11 @@ boxes.forEach((box) => {
     count += 1;
     if (turnO) {
       box.innerText = "O";
+      box.style.color = "red";
       turnO = false;
     } else {
       box.innerText = "X";
+      box.style.color = "blue";
       turnO = true;
     }
     box.disabled = true;
@@ -78,12 +80,13 @@ const checkWinner = () => {
     if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
       if (pos1Val === pos2Val && pos2Val == pos3Val) {
         // console.log("winner", pos1Val);
-
         showWinner(pos1Val);
+        count = 0;
       }
     }
 
     if (count === 9) {
+      count = 0;
       draw();
     }
   }
